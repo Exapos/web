@@ -18,6 +18,7 @@ if (!empty($username) && !empty($password)) {
       $_SESSION['cookie'] = $cookie = $_COOKIE["PHPSESSID"];
       $sql = "UPDATE register SET cookie = '$cookie' WHERE username = '$username' AND password = '$password'";
       $conn->query($sql);
+      
      }
   } else {
     echo "Invalid credentials";

@@ -27,7 +27,7 @@ if (isset($_SESSION['cookie'])) { // jsem přihlášený
         $user = $row; // v proměnné "row" je přihlášený uživatel
         break;
     }
-    
+
 } else { // nejsem příhlášený, přesměruju ho na login
     header('Location: /login/index.html');
 }
