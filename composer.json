@@ -1,0 +1,12 @@
+{
+    "name": "knobi/ftp",
+    "authors": [
+        {
+            "name": "Exapos",
+            "email": "klamota@email.cz"
+        }
+    ],
+    "require": {
+        "tracy/tracy": "^2.7"
+    }
+}

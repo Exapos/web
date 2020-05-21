@@ -1,0 +1,5 @@
+vendor
+composer.lock
+.vscode
+error.log
+includes/config.local.php
