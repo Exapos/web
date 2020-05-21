@@ -1,23 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-require "../vendor/autoload.php";
-
-use Tracy\Debugger;
-Debugger::enable(Debugger::DEVELOPMENT);
-Debugger::$showBar = true;
-
-
-require "../includes/config.local.php";
+require('../bootstrap.php');
 
 $username = $_POST['username'];
 $password =  $_POST['password'];
 $email =  $_POST['email'];
 $confirm_password = $_POST['confirm_password'];
 
-include '../registration/index.html';
 
 if (!empty ($username) || !empty($password) || !empty($confirm_password) || !empty($email)) {
     if ($_POST["password"] === $_POST["confirm_password"]) {
