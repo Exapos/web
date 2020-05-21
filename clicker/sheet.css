@@ -1,0 +1,109 @@
+body{
+    background:url(/img/bg.jpg); 
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	align-items: center;
+	-webkit-touch-callout: none; 
+	-webkit-user-select: none; 
+	-khtml-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.total-money-amount {
+	background-color: dimgrey;
+	width: 100%;
+	min-height: 50px;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 2.5em;
+	float: left;
+	opacity: 0.6;
+	margin-top: 20px;
+}
+.gaining-per-second {
+	width: 100%;
+	float: left;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#canvas{
+	height: 100%;
+	width: 100%;
+	/* background-color: lime;; */
+}
+body,html{
+	height: 100%;
+}
+#app{
+	height: 100%;
+}
+.column-left{
+	text-align: center;
+	height: 100%;
+}
+
+.pulse:active {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+		transform: scale(0.90);
+		
+	}
+
+	70% {
+		transform: scale(1);
+
+	}
+
+	100% {
+		transform: scale(0.90);
+		
+	}
+}
+.item-count{
+	background-color: deepskyblue;
+	border-radius: 100px;
+	padding: 5px;
+	font-weight: bolder;
+	text-align: center;
+}
+.item-price{
+	background-color: gold;
+	border-radius: 100px;
+	padding: 5px;
+	font-weight: bolder;
+	text-align: center;
+}
+.product-row{
+	width: 100%;
+}
+
+.item-name{
+	padding: 10px 20px;
+	font-weight: bolder;
+	min-width: 200px;
+	width: 200px;
+}
+#inventory{
+	list-style: none;
+}
+.product-row{
+	cursor: pointer;
+	border-bottom: 1px solid brown;
+	border-left: 1px solid brown;
+	padding: 10px 0;
+}
+.item-img{
+	width: 55px;
+	height: 55px;
+	background-color: deeppink;
+	border-radius: 100px;
+	padding: 5px;
+}
