@@ -7,6 +7,8 @@ session_start();
 
 require "../vendor/autoload.php";
 
+// "kdyby/autowired": "",
+// "tracy/tracy": "^2.7",
 use Tracy\Debugger;
 
 Debugger::enable(Debugger::DEVELOPMENT);

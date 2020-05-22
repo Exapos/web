@@ -1,0 +1,19 @@
+{block content}
+
+{* tady je html, sem nepatří PHP *}
+
+<h1>Clicker</h1>
+
+{var $names = ['Franta', 'Pepa', 'Matěj']}
+
+<ul>
+    {foreach $names as $name}
+        <li>{$name}</li>
+    {/foreach}
+</ul>
+
+<hr>
+
+{foreach $names as $name}
+   {$name},
+{/foreach}
