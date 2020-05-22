@@ -27,9 +27,11 @@ class SignInForm extends BaseFormComponent
 		$form = $this->createForm();
 
 		$form->addText('username', 'Uživatelské jméno')
+			->setAttribute('placeholder', 'Uživatelské jméno')
 			->setRequired();
 
 		$form->addPassword('password', 'Heslo:')
+			->setAttribute('placeholder', 'Heslo')
 			->setRequired();
 
 		$form->addSubmit('submit', 'Přihlásit se');
@@ -39,6 +41,8 @@ class SignInForm extends BaseFormComponent
 
 	public function processForm($form, $values)
 	{
+		dump($values);
+		exit;
 		$this->onSave($values);
 	}
 }

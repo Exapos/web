@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Forms;
 
+use Nette\Forms\Form;
+
+
 interface SignUpFormFactory
 {
 
@@ -27,24 +30,35 @@ class SignUpForm extends BaseFormComponent
 		$form = $this->createForm();
 
 		$form->addText('username', 'Jméno')
+			->addRule(Form::MIN_LENGTH, 'Jméno musí mít alespoň %d znaků', 5)
 			->setRequired();
 
-		$form->addText('email', 'E-mail:')
+		$form->addEmail('email', 'E-mail:')
 			->setRequired();
 
 		$form->addPassword('password', 'Heslo:')
+			->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků', 6)
 			->setRequired();
 
 		$form->addPassword('passwordVerify', 'Heslo znovu:')
-			->setRequired();
+			->setRequired('Zadejte prosím heslo ještě jednou pro kontrolu')
+			->addRule(Form::EQUAL, 'Hesla se neshodují', $form['password']);
 
-		$form->addSubmit('submit', 'Přihlásit se');
+		$form->addSubmit('submit', 'Registrovat se');
 
 		return $form;
 	}
 
+	// public function onValidate($form, $value)
+	// {
+	// 	dump($form->getErrors());
+	// 	exit;
+	// }
+
 	public function processForm($form, $values)
 	{
+		dump($values);
+		exit;
 		$this->onSave($values);
 	}
 }

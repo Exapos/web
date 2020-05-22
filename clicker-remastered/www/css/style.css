@@ -1,16 +1,28 @@
-body {
-	margin-top: 20px;
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #4ac511);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
 }
-
-h1 {
-	color: #3484D2;
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
 }
-
-a[href^="#error:"] {
-	background: red;
-	color: white;
+.form-control{
+    border-radius:1.5rem;
 }
-
-form .required label {
-	font-weight: bold;
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
 }

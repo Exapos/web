@@ -1,1 +1,32 @@
-{control form}
+<form n:name="form">
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <p>Login pro přístup do clickeru</p>
+            </div>
+
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input n:name="username" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input n:name="password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            <input n:name="submit" class="btnSubmit">
+            
+            <span>Nejsi zaregistrovaný? Zaregistuj se</span>
+            {* <a href="../registration/index.html"> zde</a>*}
+            
+            <a href="{plink Sign:up}"> zde</a> {* takhle se to používá v komponentě (formulář) *}            
+            
+            {* <a n:href="Sign:up"> zde</a> takhle se to používá v pohledu  *}
+        </div>
+    </div>
+</form>
