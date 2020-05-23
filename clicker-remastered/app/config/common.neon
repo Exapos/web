@@ -18,7 +18,7 @@ services:
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
-	- App\Model\Service\UserService
+	- App\Model\Service\UserAccountService
 	- App\Model\Service\ProductService
 	- App\Model\Service\InventoryItemService
 	router: App\Router\RouterFactory::createRouter

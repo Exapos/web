@@ -7,7 +7,7 @@ namespace App\Presenters;
 use App\Forms\SignInFormFactory;
 use App\Forms\SignUpFormFactory;
 use App\Model\Entity\UserAccount;
-use App\Model\Service\UserService;
+use App\Model\Service\UserAccountService;
 use Nette\Security\AuthenticationException;
 
 final class SignPresenter extends BasePresenter
@@ -22,8 +22,8 @@ final class SignPresenter extends BasePresenter
 	/** @var SignInFormFactory @inject */
 	public $signInFactory;
 
-	/** @var UserService @inject */
-	public $userService;
+	/** @var UserAccountService @inject */
+	public $userAccountService;
 
 	protected function createComponentSignUpForm()
 	{
@@ -35,6 +35,7 @@ final class SignPresenter extends BasePresenter
 			$userAccount->email = $values->email;
 			$userAccount->password = sha1($values->password);
 
+			$this->userAccountService->save($userAccount);
 			$this->getUser()->login($userAccount->username, $values->password);
 			$this->redirect('Homepage:');
 		};
@@ -51,8 +52,6 @@ final class SignPresenter extends BasePresenter
 				$this->getUser()->login($values->username, $values->password);
 				$this->redirect('Homepage:');
 			} catch (AuthenticationException $e) {
-				dump($e);
-				exit;
 				$form->addError('Nesprávné přihlašovací jméno nebo heslo.');
 			}
 		};

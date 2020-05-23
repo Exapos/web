@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Model\Entity\DbUser;
+use App\Model\Service\UserAccountService;
 use App\Model\Service\UserService;
 use Nette\Security\AuthenticationException;
 use Nette\Security\IAuthenticator;
@@ -22,12 +23,12 @@ class Authenticator implements IAuthenticator
     const NAMESPACE_FRONT = 'front';
     const ADMIN_STORAGE = 'Nette.Http.UserStorage/admin';
 
-    /** @var UserService */
-    private $userService;
+    /** @var UserAccountService */
+    private $userAccountService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserAccountService $userAccountService)
     {
-        $this->userService = $userService;
+        $this->userAccountService = $userAccountService;
     }
 
     public function authenticate(array $credentials)
@@ -46,7 +47,7 @@ class Authenticator implements IAuthenticator
 
     private function authenticateToFront($email, $password, $force = false)
     {
-        if (!$user = $this->userService->findOneBy(['username' => $email])) {
+        if (!$user = $this->userAccountService->findOneBy(['username' => $email])) {
             throw new AuthenticationException(
                 'wrongEmail',
                 self::IDENTITY_NOT_FOUND
@@ -61,7 +62,7 @@ class Authenticator implements IAuthenticator
             );
         }
 
-        $this->userService->save($user);
+        $this->userAccountService->save($user);
 
         return $user;
     }
