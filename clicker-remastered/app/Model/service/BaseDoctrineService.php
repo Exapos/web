@@ -6,7 +6,6 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Kdyby\Doctrine\EntityDao;
 use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityRepository;
-use Nette\InvalidStateException;
 use Nette\SmartObject;
 
 /**
@@ -127,4 +126,5 @@ abstract class BaseDoctrineService
     {
         return $this->repository->createQueryBuilder($alias);
     }
+
 }
