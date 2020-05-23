@@ -49,12 +49,6 @@ class SignUpForm extends BaseFormComponent
 		return $form;
 	}
 
-	// public function onValidate($form, $value)
-	// {
-	// 	dump($form->getErrors());
-	// 	exit;
-	// }
-
 	public function processForm($form, $values)
 	{
 		$this->onSave($form, $values);
