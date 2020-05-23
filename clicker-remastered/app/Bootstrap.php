@@ -20,6 +20,10 @@ class Bootstrap
 			'89.103.65.133', // exapos
 		]);
 
+		if (PHP_SAPI === 'cli') {
+			$configurator->setDebugMode(true);
+		}
+		
 		$configurator->enableTracy(__DIR__ . '/../log');
 
 		$configurator->setTimeZone('Europe/Prague');

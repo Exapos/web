@@ -19,5 +19,7 @@ services:
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
 	- App\Model\Service\UserService
+	- App\Model\Service\ProductService
+	- App\Model\Service\InventoryItemService
 	router: App\Router\RouterFactory::createRouter
 	authenticator: App\Service\Authenticator

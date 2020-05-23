@@ -32,7 +32,8 @@
 		"latte/latte": "^2.5",
 		"tracy/tracy": "^2.6",
 		"dg/adminer-custom": "^1.8",
-		"kdyby/doctrine": "^3.3"
+		"kdyby/doctrine": "^3.3",
+		"doctrine/data-fixtures": "^1.3"
 	},
 	"require-dev": {
 		"nette/tester": "^2.0",

@@ -30,9 +30,11 @@ class UserAccount extends BaseEntity implements IIdentity
     /** @ORM\Column(type="string") */
     public $email;
 
+    /** @ORM\OneToMany(targetEntity="InventoryItem", mappedBy="userAccount", cascade={"persist", "remove"}) */
+    public $inventoryItems;
+
     public function getRoles()
     {
         return ['']; // todo
     }
-    
 }
