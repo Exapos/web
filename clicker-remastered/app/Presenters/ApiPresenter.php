@@ -14,14 +14,8 @@ final class ApiPresenter extends BasePresenter
 	/** @var ProductService @inject */
 	public $productService;
 
-	/** @var UserAccountService @inject */
-	public $userAccountService;
-
 	/** @var InventoryItemService @inject */
 	public $inventoryItemService;
-
-	/** @var UserAccount */
-	private $userAccount;
 
 	public function startup()
 	{
@@ -29,11 +23,11 @@ final class ApiPresenter extends BasePresenter
 		if (!$this->user->isLoggedIn()) {
 			$this->sendJson(['error' => 'You are not logged in']);
 		}
-		$this->userAccount = $this->userAccountService->find($this->user->getId());
 	}
 
-	public function actionSaveClicks($amount)
+	public function actionSaveClicks()
 	{
+		$amount = 5;
 		$this->userAccount->addMoney($amount);
 		$this->userAccountService->save($this->userAccount);
 		$this->sendJson(['response' => 'ok']);

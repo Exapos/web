@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use Nette\Application\LinkGenerator;
 use App\Model\Service\ProductService;
 use App\Model\Service\InventoryItemService;
 
@@ -18,9 +19,11 @@ final class HomepagePresenter extends BasePresenter
 	/** @var InventoryItemService @inject */
 	public $inventoryItemService;
 
+	/** @var LinkGenerator @inject */
+	public $linkGenerator;
+
 	public function startup()
 	{
-
 		parent::startup();
 		if (!$this->user->isLoggedIn()) {
 			$this->redirect('Sign:in');
@@ -39,7 +42,7 @@ final class HomepagePresenter extends BasePresenter
 		if ($inventoryItems) { // něco mám koupené
 			foreach ($inventoryItems as $inventory) {
 				foreach ($products as $product) {
-					if($inventory->product->namePrivate == $product->namePrivate){
+					if ($inventory->product->namePrivate == $product->namePrivate) {
 						$product->count = $inventory->count;
 					}
 				}
@@ -49,7 +52,11 @@ final class HomepagePresenter extends BasePresenter
 		$this->template->products  = $products;
 	}
 
-	public function actionPonozka()
+	public function beforeRender()
 	{
+		parent::beforeRender();
+		$this->template->links = [
+			'increaseMoney' => $this->linkGenerator->link('Api:SaveClicks'),
+		];
 	}
 }

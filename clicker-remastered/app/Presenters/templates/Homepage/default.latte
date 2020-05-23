@@ -6,7 +6,11 @@
 {block scripts}
 <script>
 
-    var money = 0;
+    var money = {$userAccount->money};
+  
+    var links = {
+        'increaseMoney': {$links['increaseMoney']},
+    };
     var currency = {
         'chleba': 'chleba',
         'chleby': 'chleby',

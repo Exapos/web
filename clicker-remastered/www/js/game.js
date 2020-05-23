@@ -94,25 +94,27 @@ $(document).ready(function () {
     };
 
     function save() {
-        // localStorage.setItem('money', money);
-        // localStorage.setItem('inventory', JSON.stringify(inventory));
+
     }
 
     function load() {
-        // var loadedInventory = localStorage.getItem('inventory');
-        // var loadedMoney = localStorage.getItem('money');
-
-        // if (loadedInventory && loadedMoney) {
-        //     inventory = JSON.parse(loadedInventory);
-        //     money = parseInt(loadedMoney);
-        // } else { 
         inventory = getDefaultInventory();
-       
         refreshInventory();
     }
 
+    var amountToCallApi = 5;
+    var amountCurrent = 0;
+
     function add() {
         money = money + 1;
+        amountCurrent++;
+        if (amountCurrent >= amountToCallApi) {
+            $.get(links.increaseMoney, function (data, status) {
+                console.log(data);
+                console.log(status);
+            });
+            amountCurrent = 0;
+        }
         update();
     }
 

@@ -38,7 +38,7 @@ class UserAccount extends BaseEntity implements IIdentity
 
     public function getRoles()
     {
-        return ['']; // todo
+        return [''];
     }
 
     public function addMoney($amount)
