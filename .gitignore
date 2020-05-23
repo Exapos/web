@@ -3,3 +3,4 @@ composer.lock
 .vscode
 error.log
 includes/config.local.php
+clicker-remastered/app/config/config.local.neon

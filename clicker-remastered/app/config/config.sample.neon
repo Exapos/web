@@ -1,0 +1,8 @@
+parameters:
+
+doctrine:
+	user: jmeno
+	password: heslo
+	dbname: database
+	metadata:
+		App: %appDir%

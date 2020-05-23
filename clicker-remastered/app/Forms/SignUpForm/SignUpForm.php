@@ -57,8 +57,6 @@ class SignUpForm extends BaseFormComponent
 
 	public function processForm($form, $values)
 	{
-		dump($values);
-		exit;
-		$this->onSave($values);
+		$this->onSave($form, $values);
 	}
 }
