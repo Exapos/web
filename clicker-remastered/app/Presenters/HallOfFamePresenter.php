@@ -22,4 +22,5 @@ final class HallOfFamePresenter extends BasePresenter
 			$this->userAccountService->getQueryBuilder()->orderBy('s.money', 'DESC')
 		);
 	}
+	
 }

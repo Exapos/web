@@ -11,7 +11,7 @@ use App\Model\Entities\UnsignedIdentifier;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="register")
+ * @ORM\Table(name="user_account")
  */
 class UserAccount extends BaseEntity implements IIdentity
 {
@@ -36,6 +36,12 @@ class UserAccount extends BaseEntity implements IIdentity
     /** @ORM\OneToMany(targetEntity="InventoryItem", mappedBy="userAccount", cascade={"persist", "remove"}) */
     public $inventoryItems;
 
+    /** @ORM\Column(type="datetime", nullable=true) */
+    public $perSecondGenerateLastCheck;
+
+    /** @ORM\Column(type="integer") */
+    public $perSecondGenerateAmount = 0;
+
     public function getRoles()
     {
         return [''];
@@ -44,5 +50,16 @@ class UserAccount extends BaseEntity implements IIdentity
     public function addMoney($amount)
     {
         $this->money += $amount;
+    }
+
+    public function getInventoryItemBySlug($slug)
+    {
+        foreach ($this->inventoryItems as $inventoryItem) {
+            if ($inventoryItem == $slug) {
+                return $inventoryItem;
+            }
+        }
+
+        return null;
     }
 }

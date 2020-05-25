@@ -26,6 +26,7 @@ services:
 	- App\Model\Service\UserAccountService
 	- App\Model\Service\ProductService
 	- App\Model\Service\InventoryItemService
+	- App\Service\MerchantService
 	- App\Grids\HallOfFameGridFactory
 	router: App\Router\RouterFactory::createRouter
 	authenticator: App\Service\Authenticator

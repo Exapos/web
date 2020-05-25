@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Model\Entity\DbUser;
 use App\Model\Service\UserAccountService;
 use App\Model\Service\UserService;
+use Kdyby\Translation\Translator;
 use Nette\Security\AuthenticationException;
 use Nette\Security\IAuthenticator;
 use Nette\Security\Passwords;
@@ -26,9 +27,13 @@ class Authenticator implements IAuthenticator
     /** @var UserAccountService */
     private $userAccountService;
 
-    public function __construct(UserAccountService $userAccountService)
+    /** @var Translator */
+    private $translator;
+
+    public function __construct(UserAccountService $userAccountService, Translator $translator)
     {
         $this->userAccountService = $userAccountService;
+        $this->translator = $translator;
     }
 
     public function authenticate(array $credentials)

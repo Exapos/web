@@ -7,14 +7,17 @@ namespace App\Presenters;
 use Nette\Application\LinkGenerator;
 use App\Model\Service\ProductService;
 use App\Model\Service\InventoryItemService;
+use App\Service\MerchantService;
 
-// sem nikdy nepatří HTML, JS, CSS
-
+// sem nikdy nepatří HTML, JS, CSS, jinak půjdeš do programátorského vězení
 final class HomepagePresenter extends BasePresenter
 {
 
 	/** @var ProductService @inject */
 	public $productService;
+
+	/** @var MerchantService @inject */
+	public $merchantService;
 
 	/** @var InventoryItemService @inject */
 	public $inventoryItemService;
@@ -50,6 +53,13 @@ final class HomepagePresenter extends BasePresenter
 		}
 
 		$this->template->products  = $products;
+	}
+
+	public function actionBuy()
+	{
+		$response = $this->merchantService->buyItemBySlug('grandmother', $this->userAccount);
+		dump($response);
+		exit;
 	}
 
 	public function beforeRender()
