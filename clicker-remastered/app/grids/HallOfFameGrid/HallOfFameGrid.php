@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace App\Grids;
 
-use Dibi\Fluent;
-use Nette\Utils\Html;
 use App\Grids\BaseGrid;
-use App\Model\Entity\Order;
-use Ublaboo\DataGrid\Exception\DataGridException;
 
 interface HallOfFameGridFactory
 {
@@ -43,12 +39,11 @@ class HallOfFameGrid extends BaseGrid
         $grid = $this->createGrid($this, $name);
 
         $grid->addColumnText('username', 'username');
-        
+
         $grid->addColumnText('money', 'money');
-        
+
         $grid->setDataSource($this->dataSource);
 
         return $grid;
     }
-
 }

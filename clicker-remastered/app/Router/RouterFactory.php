@@ -17,7 +17,8 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 		$router[] = $frontRouter = new RouteList();
-		$frontRouter[] = new Route('<presenter>/<action>', 'Homepage:default');
+		
+		$frontRouter[] = new Route('[<locale=cs [a-z]{2}>/]<presenter>/<action>', 'Homepage:default');
 
 		return $router;
 	}

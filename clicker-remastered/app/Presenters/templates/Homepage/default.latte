@@ -12,9 +12,9 @@
         'increaseMoney': {$links['increaseMoney']},
     };
     var currency = {
-        'chleba': 'chleba',
-        'chleby': 'chleby',
-        'chlebu': 'chlebů',
+        'chleba': {_chleba},
+        'chleby': {_chleby},
+        'chlebu': {_chlebu},
     };
   
     function getDefaultInventory() {
@@ -35,7 +35,7 @@
         ];
     }
 </script>
-<script src="js/game.js"></script>
+<script src="/js/game.js"></script>
 {/block}
 
 {block content}
@@ -45,7 +45,7 @@
                 <span class="total-money-amount"></span>
                 <span class="gaining-per-second"></span>
                 
-                <a href="#" id="click-btn"><img src="img/chleba.png" width="400px" height="400px"class="pulse"></a>
+                <a href="#" id="click-btn"><img src="/img/chleba.png" width="400px" height="400px"class="pulse"></a>
             </div>
         </div>
         <div class="col-md-4">

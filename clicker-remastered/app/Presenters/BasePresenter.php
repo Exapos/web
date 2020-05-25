@@ -15,6 +15,12 @@ use App\Model\Service\UserAccountService;
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 
+    /** @persistent */
+    public $locale;
+
+    /** @var \Kdyby\Translation\Translator @inject */
+    public $translator;
+
     /** @var UserAccountService @inject */
     public $userAccountService;
 
