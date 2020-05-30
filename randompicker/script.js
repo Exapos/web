@@ -18,9 +18,9 @@ $(document).ready(function () {
 
     var mapsContent = '';
 
-    var index = 1;
+    var index = 0;
     maps.forEach(element => {
-        if(index == 1){
+        if(index == 0){
             mapsContent+= '<div class="d-flex">';
         }
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
         mapsContent += '<div class="flex-fill"><label for="'+index+'"><input type="checkbox" class="checkbox-map" id="'+index+'">'+elementImg +'<br></label>'+
                        '</div>';
 
-        if(index % 4 == 0){ //pokud je zbytek po dělení == 0, "modulo"
+        if(1 % 4 == 0){ //pokud je zbytek po dělení == 0, "modulo"
             // nový řádek
             mapsContent+= '</div>';
             mapsContent+= ' <div class="d-flex">';
