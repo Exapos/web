@@ -17,7 +17,7 @@ class Bootstrap
 
 		$configurator->setDebugMode([
 			'212.79.110.141', // Plzeň byt Papírna
-			'89.103.65.133', // exapos
+			'89.177.254.143', // exapos
 		]);
 
 		if (PHP_SAPI === 'cli') {

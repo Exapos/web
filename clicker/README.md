@@ -1,2 +1,0 @@
-# chleba
-Chleba clicker
