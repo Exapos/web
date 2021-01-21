@@ -1,0 +1,42 @@
+.background{
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    background-image: url("https://scontent-prg1-1.xx.fbcdn.net/v/t1.0-9/88135262_2502482433326814_1799573129312337920_n.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_ohc=aqXSulpd_q8AX8xDNdj&_nc_ht=scontent-prg1-1.xx&oh=3c8563ee3a691101193f67347d82247e&oe=60308E4A")
+}
+#player {
+    /* We first create a flex layout context */
+    display: flex;
+    
+    /* Then we define the flow direction 
+       and if we allow the items to wrap 
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: row wrap;
+    
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+.flex-item {
+    background: rgb(255, 255, 0);
+    padding: 5px;
+    width: 400px;
+    height: 150px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+}
+
