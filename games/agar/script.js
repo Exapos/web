@@ -101,9 +101,6 @@ function spawnEnemies() {
     }, 1000)
  }
 
-
-
-
 function animate() { 
     requestAnimationFrame(animate)
     c.clearRect(0, 0, canvas.width, canvas.height)
@@ -111,10 +108,21 @@ function animate() {
     projectiles.forEach(projectile => {
         projectile.update()
     })
-    enemies.forEach(enemy => {
+    enemies.forEach((enemy, index) => {
         enemy.update()
-    })
 
+        projectiles.forEach((projectile, projectileIndex) => {
+            const dist = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
+
+            //objects touch
+            if (dist - enemy.radius - projectile.radius < 1) {
+                setTimeout(() => {
+                    enemies.splice(index, 1)
+                    projectiles.splice(projectileIndex, 1)
+                }, 0)
+            }
+        })
+    })
  }
 
 addEventListener('click', (event) => 
